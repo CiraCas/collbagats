@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>CollbaGats</title>
   <meta name="description" content="collbagats">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,16 +27,22 @@
           <i class="fab fa-instagram"></i>
         </div>
         <div>
-          <i class="fas fa-lock"></i>
+          <a href="mailto:collbagats@gmail.com" class="fab">collbagats@gmail.com</a>
         </div>
       </div>
     </div>
     <h1 class= "contenedor">
       <img class="logo" src="img/logo.png" alt="logo">
     </h1>
-    <nav>
-
-    </nav>
+    <div class="franja">
+      <nav class="navegacion-principal contenedor">
+        <a href="#">Gats de Collbató</a>
+        <a href="#">Actualidad</a>
+        <a href="#">Colaborar</a>
+        <a href="#">Adopciones</a>
+        <a href="#">Contacto</a>
+      </nav>
+    </div>
   </header>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/vendor/jquery-3.6.0.min.js"></script>

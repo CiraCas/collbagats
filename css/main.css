@@ -2,7 +2,8 @@
   --blanco: #ffffff;
   --negro: #212121;
   --primario: #f57927;
-  --secundario: #0097A7;
+  --primarioflojo:#f8a46b;
+  --secundario:  #0fc2d6;
   
 }
 
@@ -20,8 +21,11 @@ body{
   font-size: 16px; /* 1rem=10px */
   font-family: 'Rubik', sans-serif;
 }
+h1{
 
+  padding:2rem;
 
+}
 h2{
   font-size: 2.8rem;
 }
@@ -32,6 +36,9 @@ h3{
 h2,h3{ 
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
 
 .contenedor {
   max-width: 130rem;
@@ -41,10 +48,13 @@ h2,h3{
 
 .franja {
   background-color: var(--primario);
-  
+}
+
+.centrar {
+  text-align: center;
 }
 .logo {
-  height: 15rem;
+  height: 12rem;
 }
 
 /*ICONS*/
@@ -53,38 +63,76 @@ h2,h3{
   justify-content: space-between;
 }
 
-.fab,
-.fas {
-  background-color:  #f57927;
-  color: white;
+.fab {
+  background-color: var(--primario);
+  color: var(--blanco);
   font-size: 24px;
   padding: 0.5rem;
-  margin-right: 1.5rem;
+  margin-right: 5rem;
+}
+.fab:hover,
+.fas:hover{
+  color: var(--secundario);
 }
 
+/*Navegacion*/
+.navegacion-principal{ 
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;/*Para alinear en columnas pero lo alinearemos en a*/
 
-   
+}
+@media (min-width: 768px) { 
+  .navegacion-principal{
+    flex-direction: row;
+    justify-content: space-between;/*para alinear en rows*/
+  }
+}
+.navegacion-principal a {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+.navegacion-principal a:hover{
+  color: var(--negro);
+  background-color: var(--secundario);
+  
+}
+
+.formulario {
+  background-color: var(--primarioflojo);
+  width: min(60rem, 100%); /*coge 600px o si es más pequeño el 100%. Evita usar media queries */
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.formulario fieldset {
+  border: none;
+}
+.formulario legend {
+  color: var(--negro);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
 
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
+.input-text {
+  border: none;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+.formulario label{
+  font-weight: bold;
+  margin: 0.5rem;
+  display: block;
+}
