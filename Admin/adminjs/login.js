@@ -8,10 +8,9 @@ function validaLogin(){
     }
     return true;
 }
-//validamos password mediante llamada al evento en js. lo hacemos con onblur porque me parece excesivo ir validando letra a letra.
+//validamos password mediante llamada al evento en js.
 let inputPassword = document.forms["formulario"]["password"];
-//inputPassword.onblur = validaPassword;
-inputPassword.addEventListener("blur",validaPassword,false);
+inputPassword.addEventListener("mouseleave",validaPassword,false);
 function validaPassword(){
     let formulario = document.forms["formulario"];
     let password = formulario["password"].value;
@@ -24,15 +23,15 @@ function validaPassword(){
         return false
     }
     if(pattr2.test(password) == false){
-        span.style.backgroundColor = "red";
+    
         span.innerHTML="Password ha de tener entre 4 y 9 caracteres";
         return false
     }
-    span.innerHTML="ok";
+    span.innerHTML="";
     
 }
 let inputEmail = document.forms["formulario"]["email"];
-inputEmail.addEventListener("blur",validaEmail,false);
+inputEmail.addEventListener("mouseleave",validaEmail,false);
 function validaEmail(){
     let formulario = document.forms["formulario"];
     let email = formulario["email"].value;
@@ -42,5 +41,6 @@ function validaEmail(){
         span.innerHTML="Debe tener formato mail";
         return false
     }
-    span.innerHTML="ok";
+    span.innerHTML="";
+   
 }

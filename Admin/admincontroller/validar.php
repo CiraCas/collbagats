@@ -32,6 +32,7 @@ else{
 			$fila = mysqli_fetch_array($resultado);
 			//var_dump($fila);
 			extract ($fila);
+			$_SESSION['nombre']=$nombre;
 			$_SESSION['usuario']=$tipo_usuario;
 
 			if($_SESSION['password'] == $contrasenia){

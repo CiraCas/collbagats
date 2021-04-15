@@ -37,7 +37,13 @@ if(isset($_SESSION['usuario'])){
         <title>Administrador</title>
     </head>
     <body>
-        <p>hola admin2</p>
+        <h2>Hola
+            <?php
+            if(isset($_SESSION['nombre'])){
+                echo $_SESSION['nombre'];
+            }
+            ?>! Bienvenid@
+        </h2>
         <form method='post'>
 		    <input type='submit' value='Desconectar' name='desconectar'/>
         </form>

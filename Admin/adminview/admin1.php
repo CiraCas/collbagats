@@ -38,7 +38,45 @@ if(!empty($_REQUEST['desconectar'])){
         <title>Administrador</title>
     </head>
     <body>
-        <p>hola admin1</p>
+        <h2>Hola
+        <?php
+         if(isset($_SESSION['nombre'])){
+             echo $_SESSION['nombre'];
+         }
+        ?>! Bienvenid@
+        </h2>
+        <table id="table_id" class="display" border='1'>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Nombre</th>
+                    <th>Apellido 1</th>
+                    <th>Apellido 2</th>
+                    <th>Permisos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    require_once("../admincontroller/variablescon.php");
+                    $con = mysqli_connect($host, $user, $pass, $db_name) or die("Error de conexión con la base de datos");
+                    $usuario="select * from usuarios";
+                    $resultado=mysqli_query($con, $usuario);
+                   
+                    while($fila = mysqli_fetch_array($resultado)){
+                        extract($fila);
+                    ?>
+                    <tr>
+                        <td><?php echo $mail?></td>
+                        <td><?php echo $nombre?></td>
+                        <td><?php echo $apellido1?></td>
+                        <td><?php echo $apellido2?></td>
+                        <td><?php echo $tipo_usuario?></td>
+                    </tr>
+                <?php
+                    }
+                ?>
+            </tbody>
+        </table>
         <form method='post'>
 		    <input type='submit' value='Desconectar' name='desconectar'/>
         </form>
