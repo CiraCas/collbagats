@@ -47,6 +47,7 @@ if(!empty($_REQUEST['desconectar'])){
                         <img class="logo" src="../../img/logo.png" alt="logo">
                     </div>
                     <nav class="menu-navigation">
+                        <div></div>
                         <ul class="menu-list">
                             <li class="menu-list-item">
                                 <a href="#">Gatos</a>
