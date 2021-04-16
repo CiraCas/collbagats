@@ -37,49 +37,87 @@ if(!empty($_REQUEST['desconectar'])){
         <link rel="stylesheet" href="../../css/main.css">
         <title>Administrador</title>
     </head>
-    <body>
-        <h2>Hola
-        <?php
-         if(isset($_SESSION['nombre'])){
-             echo $_SESSION['nombre'];
-         }
-        ?>! Bienvenid@
-        </h2>
-        <table id="table_id" class="display" border='1'>
-            <thead>
-                <tr>
-                    <th>Email</th>
-                    <th>Nombre</th>
-                    <th>Apellido 1</th>
-                    <th>Apellido 2</th>
-                    <th>Permisos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    require_once("../admincontroller/variablescon.php");
-                    $con = mysqli_connect($host, $user, $pass, $db_name) or die("Error de conexión con la base de datos");
-                    $usuario="select * from usuarios";
-                    $resultado=mysqli_query($con, $usuario);
-                   
-                    while($fila = mysqli_fetch_array($resultado)){
-                        extract($fila);
-                    ?>
-                    <tr>
-                        <td><?php echo $mail?></td>
-                        <td><?php echo $nombre?></td>
-                        <td><?php echo $apellido1?></td>
-                        <td><?php echo $apellido2?></td>
-                        <td><?php echo $tipo_usuario?></td>
-                    </tr>
-                <?php
+    <body class="bo-page">
+
+        <div class="bo-flex-container">
+
+            <aside class="bo-aside">
+                <div class="franja-lateral">
+                    <div class="bo-logo">
+                        <img class="logo" src="../../img/logo.png" alt="logo">
+                    </div>
+                    <nav class="menu-navigation">
+                        <ul class="menu-list">
+                            <li class="menu-list-item">
+                                <a href="#">Gatos</a>
+                            </li>
+                            <li class="menu-list-item">
+                                <a href="#">Adopciones</a>
+                            </li>
+                            <li class="menu-list-item">
+                                <a href="#">Noticias</a>
+                            </li>
+                            <li class="menu-list-item">
+                                <a href="#">Usuarios</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+
+            <section class="bo-main">
+                <h2>Hola
+                    <?php
+                    if(isset($_SESSION['nombre'])){
+                        echo $_SESSION['nombre'];
                     }
-                ?>
-            </tbody>
-        </table>
-        <form method='post'>
-		    <input type='submit' value='Desconectar' name='desconectar'/>
-        </form>
+                    ?>! Bienvenid@
+                </h2>
+                <table id="table_id" class="display" border='1'>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Nombre</th>
+                            <th>Apellido 1</th>
+                            <th>Apellido 2</th>
+                            <th>Permisos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            require_once("../admincontroller/variablescon.php");
+                            $con = mysqli_connect($host, $user, $pass, $db_name) or die("Error de conexión con la base de datos");
+                            $usuario="select * from usuarios";
+                            $resultado=mysqli_query($con, $usuario);
+                        
+                            while($fila = mysqli_fetch_array($resultado)){
+                                extract($fila);
+                            ?>
+                            <tr>
+                                <td><?php echo $mail?></td>
+                                <td><?php echo $nombre?></td>
+                                <td><?php echo $apellido1?></td>
+                                <td><?php echo $apellido2?></td>
+                                <td><?php echo $tipo_usuario?></td>
+                            </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
+                <form method='post'>
+                    <input type='submit' value='Desconectar' name='desconectar'/>
+                </form>
+            </section>
+
+        </div>
+
+
+        <script src="../js/vendor/modernizr-3.11.2.min.js"></script>
+        <script src="../js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/main.js"></script>
     </body>
 </html>
 
